@@ -13,5 +13,6 @@
 using namespace std;
 
 void readCSV(const string& filename, vector<vector<double>>& data);
+void readCSV(const string& filename, vector<double>& data, int shape[]);
 
 #endif //PROJECT2_READ_H
