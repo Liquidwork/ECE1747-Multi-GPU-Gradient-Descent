@@ -1,5 +1,6 @@
 #include <iostream>
 #include <vector>
+#include <chrono>
 #include "read.h"
 
 using namespace std;
@@ -7,9 +8,10 @@ using namespace std;
 int main() {
     const double learn_rate = 0.08;
     const int epoch = 1000;
+    chrono::time_point<std::chrono::high_resolution_clock> start, stop;
 
     vector<vector<double>> data;
-    readCSV("E:\\Documents\\ECE1747\\project2\\data.csv", data);
+    readCSV("./data.csv", data);
     unsigned int size[2];
     cout << "Rows: " << data.size() << endl;
     if (data.empty()) {
@@ -25,6 +27,8 @@ int main() {
     double mse;
 
     std::fill(params.begin(), params.end(), 0); // params start from 0
+
+    start = chrono::high_resolution_clock::now();
 
     for (int i = 0; i < epoch; i++){ // epoch of 1000 full batch
 
@@ -56,6 +60,9 @@ int main() {
 
     }
 
+    stop = chrono::high_resolution_clock::now();
+    double time = (double) chrono::duration_cast<chrono::nanoseconds>(stop - start).count() * 1e-9;
+    cout << "Total time taken: " << time << "s." << endl;
 
     return 0;
 }

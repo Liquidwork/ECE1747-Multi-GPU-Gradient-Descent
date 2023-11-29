@@ -1,9 +1,10 @@
 //
 // Created by Winter on 2023-11-20.
 //
-#include <stdio.h>
+
 #include <iostream>
 #include <vector>
+#include <chrono>
 #include "read.h"
 
 #define THREADS_PER_BLOCK 512
@@ -62,6 +63,7 @@ __global__ void compute(double *d_data, double *params, int *shape, double *d_ms
 int main(){
     const double learn_rate = 0.08;
     const int epoch = 1000;
+    chrono::time_point<std::chrono::high_resolution_clock> start, stop;
 
     vector<double> data;
     int shape[2];
@@ -70,6 +72,9 @@ int main(){
     cout << "Rows: " << shape[0] << endl;
     cout << "Columns: " << shape[1] << endl;
     double *d_data, *d_params;
+
+    start = chrono::high_resolution_clock::now();
+
     double params[shape[1]] = {0};
     int *d_shape;
     cudaMalloc((void**)&d_data, shape[0] * shape[1] * sizeof(double));
@@ -117,5 +122,13 @@ int main(){
         cout << "], MSE: " << mse << endl;
     }
 
+    cudaFree(d_data);
+    cudaFree(d_params);
+    cudaFree(d_shape);
+    cudaFree(d_partial_mse);
+    cudaFree(d_partial_gradient);
 
+    stop = chrono::high_resolution_clock::now();
+    double time = (double) chrono::duration_cast<chrono::nanoseconds>(stop - start).count() * 1e-9;
+    cout << "Total time taken: " << time << "s." << endl;
 }

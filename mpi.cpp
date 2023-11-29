@@ -4,6 +4,7 @@
 #include <iostream>
 #include <vector>
 #include <mpi.h>
+#include <chrono>
 #include "read.h"
 
 using namespace std;
@@ -17,15 +18,20 @@ int main(int argc, char *argv[]) {
     MPI_Init(&argc, &argv);
     MPI_Comm_rank(MPI_COMM_WORLD, &rank);
     MPI_Comm_size(MPI_COMM_WORLD, &size);
+
+    chrono::time_point<std::chrono::high_resolution_clock> start, stop;
+
     int shape[2];
     double *sendbuf;
     vector<double> data;
 
     if(rank == 0){
-        readCSV("E:\\Documents\\ECE1747\\project2\\data.csv", data, shape);
+        readCSV("./data.csv", data, shape);
 
         cout << "Rows: " << shape[0] << endl;
         cout << "Columns: " << shape[1] << endl;
+
+        start = chrono::high_resolution_clock::now();
     }
     MPI_Bcast(shape, 2, MPI_INT, 0, MPI_COMM_WORLD);
 
@@ -76,6 +82,12 @@ int main(int argc, char *argv[]) {
         }
 
     }
+    if (rank == 0){
+        stop = chrono::high_resolution_clock::now();
+        double time = (double) chrono::duration_cast<chrono::nanoseconds>(stop - start).count() * 1e-9;
+        cout << "Total time taken: " << time << "s." << endl;
+    }
+
 
     MPI_Finalize();
 
