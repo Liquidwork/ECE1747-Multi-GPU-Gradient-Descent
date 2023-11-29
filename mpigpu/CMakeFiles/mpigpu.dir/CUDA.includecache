@@ -1,0 +1,34 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/homes/w/wangdo57/ece1747/project/ECE1747-project2/mpigpu/gpuhelper.cu
+gpuhelper.cuh
+/homes/w/wangdo57/ece1747/project/ECE1747-project2/mpigpu/gpuhelper.cuh
+
+/homes/w/wangdo57/ece1747/project/ECE1747-project2/mpigpu/gpuhelper.cuh
+stdio.h
+-
+iostream
+-
+vector
+-
+chrono
+-
+read.h
+/homes/w/wangdo57/ece1747/project/ECE1747-project2/mpigpu/read.h
+
+/homes/w/wangdo57/ece1747/project/ECE1747-project2/mpigpu/read.h
+iostream
+-
+vector
+-
+fstream
+-
+sstream
+-
+

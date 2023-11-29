@@ -1,0 +1,1 @@
+/usr/bin/c++ -rdynamic CMakeFiles/local.dir/local.o CMakeFiles/local.dir/read.o -o local 
