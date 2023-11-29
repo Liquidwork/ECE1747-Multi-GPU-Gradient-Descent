@@ -1,0 +1,3 @@
+/homes/w/wangdo57/ece1747/project/ECE1747-project2/mpi/CMakeFiles/rebuild_cache.dir
+/homes/w/wangdo57/ece1747/project/ECE1747-project2/mpi/CMakeFiles/edit_cache.dir
+/homes/w/wangdo57/ece1747/project/ECE1747-project2/mpi/CMakeFiles/mpi.dir

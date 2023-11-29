@@ -1,0 +1,32 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/homes/w/wangdo57/ece1747/project/ECE1747-project2/local/local.cpp
+iostream
+-
+vector
+-
+chrono
+-
+read.h
+/homes/w/wangdo57/ece1747/project/ECE1747-project2/local/read.h
+
+/homes/w/wangdo57/ece1747/project/ECE1747-project2/local/read.cpp
+read.h
+/homes/w/wangdo57/ece1747/project/ECE1747-project2/local/read.h
+
+/homes/w/wangdo57/ece1747/project/ECE1747-project2/local/read.h
+iostream
+-
+vector
+-
+fstream
+-
+sstream
+-
+

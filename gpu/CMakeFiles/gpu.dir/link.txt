@@ -1,0 +1,1 @@
+/usr/bin/c++ -rdynamic CMakeFiles/gpu.dir/gpu.o CMakeFiles/gpu.dir/read.o -o gpu   -L/usr/lib/x86_64-linux-gnu/stubs  -Wl,-Bstatic -lcudart_static -Wl,-Bdynamic -ldl -lrt -lpthread -lcudadevrt -lcudart_static -lrt -lpthread -ldl 
